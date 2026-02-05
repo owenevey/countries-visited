@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { signInAction } from "../../actions/auth";
 
-export default function Example() {
+export default function SignInPage() {
   return (
     <>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">

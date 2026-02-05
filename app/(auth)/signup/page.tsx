@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { signUpAction } from "../../actions/auth";
 
-export default function Example() {
+export default function SignUpPage() {
   return (
     <>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -23,7 +23,7 @@ export default function Example() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow-sm sm:rounded-lg sm:px-12 dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10">
-            <form action={signUpAction} method="POST" className="space-y-6">
+            <form action={signUpAction} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -35,7 +35,7 @@ export default function Example() {
                   <input
                     id="name"
                     name="name"
-                    type="name"
+                    type="text"
                     required
                     autoComplete="name"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500"

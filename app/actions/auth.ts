@@ -9,36 +9,34 @@ export async function signUpAction(formData: FormData) {
   const password = formData.get("password") as string;
   const name = formData.get("name") as string;
 
-  await auth.api.signUpEmail({
-    body: {
-      email,
-      password,
-      name,
-    },
-  });
+  try {
+    await auth.api.signUpEmail({
+      body: { email, password, name },
+    });
 
-  redirect("/");
+    redirect("/");
+  } catch (err: any) {
+    // return { error: err.message || "Signup failed" };
+  }
 }
 
 export async function signInAction(formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
-  await auth.api.signInEmail({
-    body: {
-      email,
-      password,
-    },
-  });
-
-  redirect("/");
+  try {
+    await auth.api.signInEmail({ body: { email, password } });
+    redirect("/");
+  } catch (err: any) {
+    // return { error: err.message || "Signin failed" };
+  }
 }
 
 export async function signOutAction() {
-    await auth.api.signOut({
-        headers: await headers()
-    })
-
+  try {
+    await auth.api.signOut({ headers: await headers() });
     redirect("/");
+  } catch (err: any) {
+    return { error: err.message || "Signout failed" };
+  }
 }
-
